@@ -1,47 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/05 17:12:05 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/07 01:07:33 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/06 17:00:54 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/06 23:33:24 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_putchar(char c)
+int ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (0);
 }
 
-void	ft_print_comb(void)
+void ft_print_combn(int n)
 {
-	int a;
-	int b;
-	int c;
+	n = n - 1;
 
-	a = 0 + '0';
-	while (a++ < '7')
+	int digit[9];
+	int i;
+	int k;
+
+	if (n > 10 || n < 0 )
 	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				ft_putchar(a);
-				ft_putchar(b);
-				ft_putchar(c);
-				if (a != '7')
-				{
-					ft_putchar(',');
-					ft_putchar(' ');
-				}
-			}
-		}
+		return ;
 	}
+
+	digit[0] = -1 + '0';
+	k = 1;
+
+	while (k >= 0)
+
+		while (i >= 0)
+		{
+			ft_putchar(digit[i]);
+			i--;
+		}
+		if (digit[n] != 9 - n + 48)
+		{
+			ft_putchar(',');
+			ft_putchar(' ');
+		}
+}
+
+int main()
+{
+	ft_print_combn(3);
 }
