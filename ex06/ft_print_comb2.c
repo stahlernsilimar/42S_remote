@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/05 16:53:23 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/06 14:48:53 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/06 13:53:33 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/06 14:50:08 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,27 @@ int		ft_putchar(char c)
 	return (0);
 }
 
-void	ft_is_negative(int n)
+void	ft_print_comb2(void)
 {
-	char neg;
-	char pos;
+	int a;
+	int b;
 
-	neg = 'N';
-	pos = 'P';
-	if (n < 0)
+	a = -1;
+	while (a++ <= 99)
 	{
-		ft_putchar(neg);
-	}
-	else if (n >= 0)
-	{
-		ft_putchar(pos);
+		b = a;
+		while (b++ < 99)
+		{
+			ft_putchar(a / 10 + '0');
+			ft_putchar(a % 10 + '0');
+			ft_putchar(' ');
+			ft_putchar(b / 10 + '0');
+			ft_putchar(b % 10 + '0');
+			if (a != 98)
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
+		}
 	}
 }
