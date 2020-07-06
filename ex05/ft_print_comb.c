@@ -6,50 +6,47 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 17:12:05 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/05 20:59:05 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/06 12:46:34 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int						ft_putchar(char c)
+int 				ft_putchar(char c)
 {
-						write(1, &c, 1);
+					write(1, &c, 1);
 	return (0);
 }
 
-void					t_print_comb(void)
+void 				ft_print_comb(void)
 {
 	int a;
 	int b;
 	int c;
-	int comma;
-
 	a = 0 + '0';
-	b = 1 + '0';
-	c = 2 + '0';
 
-	while (a < '10')
+	while (a++ < '7')
 	{
-		while (b < '10')
+		b = a;
+		while (b++ < '8')
 		{
-			if (b != a)
+			c = b;
+			while (c++ < '9')
 			{
-				while (c < '10')
+					ft_putchar(a);
+					ft_putchar(b);
+					ft_putchar(c);
+				if (a != '7')
 				{
-					if (c != a | b)
-					{
-						ft_putchar(a);
-						ft_putchar(b);
-						ft_putchar(c);
-						ft_putchar(',');
-						ft_putchar(' ');
-						c = c + 1;
-					}
+					ft_putchar(',');
+					ft_putchar(' ');
 				}
-				b = b + 1;
 			}
 		}
-		a = a + 1;
 	}
+}
+
+int main()
+{
+	ft_print_comb();
 }
