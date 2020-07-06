@@ -6,13 +6,13 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 14:55:30 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/06 16:54:12 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/06 16:59:34 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int 	ft_putchar(char c)
+int		ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (0);
@@ -34,10 +34,9 @@ void	ft_putnbr(int nb)
 	else
 	{
 		if (nb >= 10)
-			{
-				ft_putnbr(nb / 10);
-			}
+		{
+			ft_putnbr(nb / 10);
+		}
 		ft_putchar((nb % 10) + '0');
-
 	}
 }
