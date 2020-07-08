@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex07.c                                             :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 20:12:06 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/08 16:28:14 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/08 16:32:30 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/08 16:32:32 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int std;
 	int i;
+	int j;
 	int temp;
 
-	std = size / 2;
-	i = 1;
-	while (i <= std)
+	i = 0;
+	j = 0;
+	while (i < size)
 	{
-		if (size % 2 == 1)
+		j = i + 1;
+		while (j < size)
 		{
-			temp = tab[std + i];
-			tab[std + i] = tab[std - i];
-			tab[std - i] = temp;
-			i = i + 1;
+			if (tab[j] < tab[i])
+			{
+				temp = tab[j];
+				tab[j] = tab[i];
+				tab[i] = temp;
+			}
+			j = j + 1;
 		}
-		else
-		{
-			temp = tab[std - i];
-			tab[std - i] = tab[std + i - 1];
-			tab[std + i - 1] = temp;
-			i = i + 1;
-		}
+		i = i + 1;
 	}
 }
