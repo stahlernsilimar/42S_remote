@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 15:25:12 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/07 19:44:33 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/08 16:27:37 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr(char *str)
 	digit = 0;
 	while (*(str + digit) != '\0')
 	{
-		digit++;
+		digit = digit + 1;
 	}
 	write(1, str, digit);
 }

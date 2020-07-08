@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 20:12:06 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/07 21:14:54 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/08 16:28:14 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	ft_rev_int_tab(int *tab, int size)
 			temp = tab[std + i];
 			tab[std + i] = tab[std - i];
 			tab[std - i] = temp;
-			i++;
+			i = i + 1;
 		}
 		else
 		{
 			temp = tab[std - i];
 			tab[std - i] = tab[std + i - 1];
 			tab[std + i - 1] = temp;
-			i++;
+			i = i + 1;
 		}
 	}
 }

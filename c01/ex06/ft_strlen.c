@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 19:48:45 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/07 19:54:37 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/08 16:27:51 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strlen(char *str)
 	strnum = 0;
 	while (*(str + strnum) != '\0')
 	{
-		strnum++;
+		strnum = strnum + 1;
 	}
 	return (strnum);
 }
