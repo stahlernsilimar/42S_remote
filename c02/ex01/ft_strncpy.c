@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 16:31:42 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/09 21:00:13 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/09 14:22:13 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/09 15:45:43 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int std;
-	int i;
-	int temp;
+	int pos_src;
 
-	std = size / 2;
-	i = 1;
-	while (i <= std)
+	pos_src = 0;
+	while (pos_src < n)
 	{
-		if (size % 2 == 1)
-		{
-			temp = tab[std + i];
-			tab[std + i] = tab[std - i];
-			tab[std - i] = temp;
-			i = i + 1;
-		}
-		else
-		{
-			temp = tab[std - i];
-			tab[std - i] = tab[std + i - 1];
-			tab[std + i - 1] = temp;
-			i = i + 1;
-		}
+		dest[pos_src] = src[pos_src];
+		++pos_src;
 	}
+	return (dest);
 }
