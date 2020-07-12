@@ -1,24 +1,18 @@
-<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   rush_01.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youncho <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 22:32:27 by youncho           #+#    #+#             */
-/*   Updated: 2020/07/11 22:50:07 by youncho          ###   ########.fr       */
+/*   Updated: 2020/07/12 11:20:39 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "global_variable.h"
 #include <unistd.h>
 #include <stdlib.h>
-=======
-#include <unistd.h>
-#include <stdlib.h>
-#include "global_variable.h"
->>>>>>> a0c87eaf135ec50b298570a903004bc3185fdf27
 
 void	print_table(void);
 int		check_table(void);
@@ -104,11 +98,7 @@ int		main(int argc, char **argv)
 				i++;
 			j++;
 		}
-<<<<<<< HEAD
 		if (i % 4 != 0 || i == 0)
-=======
-		if (i % 4 != 0)
->>>>>>> a0c87eaf135ec50b298570a903004bc3185fdf27
 		{
 			write(1, "Error\n", 6);
 			return (0);
@@ -153,12 +143,9 @@ int		main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (0);
 	}
-<<<<<<< HEAD
 	if (!g_is_exit)
 	{
 		write(1, "Error : There is no number of cases!\n", 37);
 		return (0);
 	}
-=======
->>>>>>> a0c87eaf135ec50b298570a903004bc3185fdf27
 }
