@@ -3,6 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   possible.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: youncho <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 22:32:08 by youncho           #+#    #+#             */
@@ -13,6 +14,18 @@
 #include "global_variable.h"
 #include <unistd.h>
 #include <stdlib.h>
+=======
+/*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/11 22:07:58 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/11 22:29:17 by hemin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+#include <stdlib.h>
+#include "global_variable.h"
+>>>>>>> a0c87eaf135ec50b298570a903004bc3185fdf27
 
 int		check_table(void)
 {
