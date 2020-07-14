@@ -6,13 +6,13 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 14:56:23 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/05 17:11:19 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/14 14:52:22 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }

@@ -6,16 +6,15 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 17:12:05 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/07 11:00:55 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/14 13:50:09 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	return (0);
 }
 
 void	ft_print_comb(void)

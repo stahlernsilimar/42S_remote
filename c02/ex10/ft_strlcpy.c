@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 14:55:30 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/14 16:59:22 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/14 13:22:55 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/14 21:25:40 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		ft_putchar(char c)
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	write(1, &c, 1);
-	return (0);
-}
+	unsigned int pos_src;
+	unsigned int pos_dest;
+	unsigned int i;
 
-void	ft_putnbr(int nb)
-{
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(nb * (-1));
-	}
+	pos_src = 0;
+	pos_dest = 0;
+	i = 0;
+	while (src[pos_src] != '\0')
+		pos_src++;
+	if (size == 0)
+		return (pos_src);
 	else
 	{
-		if (nb >= 10)
+		while ((size != 0) && (src[i] != '\0'))
 		{
-			ft_putnbr(nb / 10);
+			dest[i] = src[i];
+			i++;
 		}
-		ft_putchar((nb % 10) + '0');
+		if (pos_src < size)
+			dest[pos_src] = '\0';
+		else
+			dest[size-1] = '\0';
 	}
-}
-
-int main(void)
-{
-	int a;
-	a = 2147483647;
-	ft_putnbr(a);
+	return (pos_src);
 }

@@ -6,12 +6,11 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 17:00:54 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/13 21:43:41 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/14 14:53:54 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -35,7 +34,6 @@ void ft_recursion (int value[10], int depth, int n, int init)
 	while (init < n)
 	{
 		value[depth] = value[depth-1] + 1;
-		printf("%d \n", value[depth]);
 		depth--;
 	}
 	while (value[n] <= 9)
