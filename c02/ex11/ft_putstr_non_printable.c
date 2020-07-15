@@ -32,7 +32,7 @@ void	ft_putstr_non_printable(char *str)
 		else
 		{
 			c1 = str[pos_str] / 16;
-			c2 = str[pos_str] % 16;
+			c2 =str[pos_str] % 16;
 
 			write(1, &c, 1);
 			write(1, &digit[c1] , 1);
@@ -40,9 +40,4 @@ void	ft_putstr_non_printable(char *str)
 			pos_str++;
 		}
 	}
-}
-
-int main()
-{
-	ft_putstr_non_printable("asdf\x7f\x1fhi\x01\xfflol");
 }
