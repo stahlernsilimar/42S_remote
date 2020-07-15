@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 22:32:27 by youncho           #+#    #+#             */
-/*   Updated: 2020/07/12 11:20:39 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/15 09:01:42 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int *g_view;
+
 void	print_table(void);
 int		check_table(void);
-int		is_possible_horizontal_left(int x, int y);
-int		is_possible_horizontal_right(int y);
-int		is_possible_vertical_up(int x, int y);
+int		is_possible_left(int x, int y);
+int		is_possible_right(int y);
+int		is_possible_up(int x, int y);
 int		is_possible(int x, int y, int n);
 void	solve(int x, int y);
 void	dfs(int x, int y);
@@ -73,7 +75,7 @@ void	solve(int x, int y)
 			return ;
 		}
 		if (x == g_num + 1)
-			if (is_possible_horizontal_right(y))
+			if (is_possible_right(y))
 				solve(1, y + 1);
 			else
 				return ;
@@ -82,70 +84,51 @@ void	solve(int x, int y)
 	}
 }
 
+int		init_setting(int i, int j, int k, char **argv)
+{
+	while (*(argv[1] + j))
+	{
+		if ('0' <= *(argv[1] + j) && *(argv[1] + j) <= '9')
+			i++;
+		j++;
+	}
+	if (i % 4 != 0 || i == 0)
+		return (0);
+	g_num = i / 4;
+	g_view = (int*)malloc((i + 1) * sizeof(int));
+	j = 0;
+	while (*(argv[1] + j))
+	{
+		if ('1' <= *(argv[1] + j) && *(argv[1] + j) <= g_num + '0')
+			g_view[k++] = *(argv[1] + j);
+		j++;
+	}
+	return (1);
+}
+
 int		main(int argc, char **argv)
 {
-	int		i;
 	int		j;
-	int		*g_view;
 
-	i = 0;
-	j = 0;
-	if (argc == 2)
+	if (argc != 2)
+		write(1, "Error\n", 6);
+	else if (init_setting(0, 0, 0, argv))
 	{
-		while (*(argv[1] + j))
-		{
-			if ('0' <= *(argv[1] + j) && *(argv[1] + j) <= '9')
-				i++;
-			j++;
-		}
-		if (i % 4 != 0 || i == 0)
-		{
-			write(1, "Error\n", 6);
-			return (0);
-		}
-		g_num = i / 4;
-		g_view = (int*)malloc((i + 1) * sizeof(int));
-		i = 0;
 		j = 0;
-		while (*(argv[1] + j))
+		while (j < g_num)
 		{
-			if ('1' <= *(argv[1] + j) && *(argv[1] + j) <= '9')
-				g_view[i++] = *(argv[1] + j);
-			else if (!(' ' == *(argv[1] + j) || (9 <= *(argv[1] + j) &&
-					*(argv[1] + j) <= 13)))
-			{
-				write(1, "Error\n", 6);
-				return (0);
-			}
+			g_up[j + 1] = *(g_view + j) - '0';
+			g_down[j + 1] = *(g_view + j + g_num * 1) - '0';
+			g_left[j + 1] = *(g_view + j + g_num * 2) - '0';
+			g_right[j + 1] = *(g_view + j + g_num * 3) - '0';
 			j++;
 		}
-		j = 1;
-		while (j <= g_num)
-		{
-			g_up[j] = *g_view - '0';
-			g_down[j] = *(g_view + g_num * 1) - '0';
-			g_left[j] = *(g_view + g_num * 2) - '0';
-			g_right[j] = *(g_view++ + g_num * 3) - '0';
-			if (g_up[j] > g_num || g_down[j] > g_num ||
-				g_left[j] > g_num || g_right[j] > g_num)
-			{
-				write(1, "Error\n", 6);
-				return (0);
-			}
-			j++;
-		}
-		g_view -= j - 1;
 		free(g_view);
 		solve(1, 1);
+		if (!g_is_exit)
+			write(1, "Error : There is no number of cases!\n", 37);
 	}
 	else
-	{
 		write(1, "Error\n", 6);
-		return (0);
-	}
-	if (!g_is_exit)
-	{
-		write(1, "Error : There is no number of cases!\n", 37);
-		return (0);
-	}
+	return (0);
 }
