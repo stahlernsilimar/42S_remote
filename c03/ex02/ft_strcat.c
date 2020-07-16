@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/16 02:32:16 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/16 13:08:22 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/16 13:26:29 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/16 14:12:49 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+char *ft_strcat(char *dest, char *src)
 {
-	int num;
+	int num_dest;
+	int num_src;
 
-	num = 0;
-	while (s1[num]!='\0' || s2[num]!='\0')
+	num_dest = 0;
+	num_src = 0;
+	while(dest[num_dest] != '\0')
+		num_dest++;
+	while(src[num_src] != '\0')
 	{
-		if (s1[num] < s2[num])
-			return (-1);
-		else if (s1[num] > s2[num])
-			return (1);
-		num++;
+		dest[num_dest] = src[num_src];
+		num_dest++;
+		num_src++;
 	}
-	return (0);
+	return(dest);
 }

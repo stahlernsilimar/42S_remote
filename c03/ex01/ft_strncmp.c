@@ -12,21 +12,19 @@
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int num;
+	unsigned int num;
 
 	num = 0;
 	if (n != 0)
 	{
-		while (num <= n)
+		while (num < n)
 		{
 			if (s1[num] < s2[num])
 				return (-1);
 			else if (s1[num] > s2[num])
 				return (1);
-			else
-				return (0);
+			num++;
 		}
 	}
-	else
-		return(0);
+	return(0);
 }
