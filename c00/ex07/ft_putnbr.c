@@ -6,38 +6,35 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 14:55:30 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/14 16:59:22 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/16 15:43:40 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	return (0);
 }
 
 void	ft_putnbr(int nb)
 {
-	if (nb < 0)
+	if (nb == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(147483648);
+	}
+	else if (nb < 0)
 	{
 		ft_putchar('-');
 		ft_putnbr(nb * (-1));
 	}
-	else
+	else if (nb >= 10)
 	{
-		if (nb >= 10)
-		{
-			ft_putnbr(nb / 10);
-		}
+		ft_putnbr(nb / 10);
 		ft_putchar((nb % 10) + '0');
 	}
-}
-
-int main(void)
-{
-	int a;
-	a = 2147483647;
-	ft_putnbr(a);
+	else
+		ft_putchar(nb + '0');
 }
