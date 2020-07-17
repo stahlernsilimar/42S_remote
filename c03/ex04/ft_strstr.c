@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/09 13:05:47 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/16 12:25:24 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/16 14:51:25 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/16 18:18:16 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int pos_src;
+	int		i;
+	int		j;
+	char	*temp[99];
 
-	pos_src = 0;
-	while (src[pos_src] != '\0')
+	i = 0;
+	j = 0;
+	while (str[i] != '\0')
+		i++;
+	while (to_find[j] != '\0')
+		j++;
+	if (j == '\0')
+		return (str);
+	if (!(i < j))
 	{
-		dest[pos_src] = src[pos_src];
-		++pos_src;
+		i = 0;
+		j = 0;
+		while (str[i] != '\0')
+		{
+			if (str[i] == to_find[0])
+				temp[j++] = &str[i];
+			i++;
+		}
+		return (*temp);
 	}
-	dest[pos_src] = '\0';
-	return (dest);
+	return (0);
 }

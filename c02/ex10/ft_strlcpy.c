@@ -6,11 +6,11 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 13:22:55 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/14 21:33:40 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/16 15:07:41 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int pos_src;
 	unsigned int pos_dest;
@@ -33,7 +33,7 @@ unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 		if (pos_src < size)
 			dest[pos_src] = '\0';
 		else
-			dest[size-1] = '\0';
+			dest[size - 1] = '\0';
 	}
 	return (pos_src);
 }

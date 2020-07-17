@@ -5,37 +5,73 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/15 20:24:34 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/15 20:24:34 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/16 10:31:30 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/17 10:03:29 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	int	pos_str;
-	char digit[] = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+	int num;
+	int i;
+	int j;
+	char *base;
 	int c1;
 	int c2;
-	int i;
+	int loop;
+	unsigned int k;
+	int address;
 
-	pos_str = 0;
-	i = 0;
+	num = 0;
+	loop = 0;
+	k = 0;
+	base = "0123456789abcdef";
 
+	if (size == 0)
+		return (0);
+	else
+	{
+		while (k <= size)
+		{
+			i = 0;
+			j = 0;
+			while (i < 16)
+			{
+				if ((i == 0) || (i % 16 == 0))
+				{
+					address = ((int *)addr)[i];
+					write(1, &address, 16);
+					write(1, ":", 1);
+					write(1, " ", 1);
+				}
+				c1 = ((unsigned char *)addr)[i + (loop*16)] * 8 / 16;
+				c2 = ((unsigned char *)addr)[i + (loop*16)] * 8 % 16;
+				write(1,&base[c1],1);
+				write(1,&base[c2],1);
+				if (i % 2 == 0)
+					write(1," ",1);
+				i++;
+			}
+			while (j < 16)
+			{
+				if ((((unsigned char *)(addr))[j] >= ' ') && (((unsigned char *)(addr))[j] <= '~'))
+					write(1,&addr[j + loop*16],1);
+				else
+					write(1,".",1);
+				j++;
+				k++;
+			}
+			write(1,"\n",1);
+			loop++;
+		}
+	}
+	return (addr);
 }
 
-void	digit_slice()
+int	main()
 {
-	while (pos_str < 16)
-	write(1, &addr[pos_str], 16);
-		write(1, ': ', 2);
-
-		c1 = addr[pos_str] / 16;
-		c2 = addr[pos_str] % 16;
-
-		write(1, &digit[c1] , 1);
-		write(1, &digit[c2] , 1);
-
-		pos_str++;
+	ft_print_memory("asdfasdfqwertytyzxcvzxcv\0\0\xff\x7f\x01", 29);
 }

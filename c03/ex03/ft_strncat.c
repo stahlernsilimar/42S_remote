@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/09 13:05:47 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/16 12:25:24 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/16 14:17:11 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/16 14:26:13 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+char *ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int pos_src;
+	unsigned int num_dest;
+	unsigned int num_src;
 
-	pos_src = 0;
-	while (src[pos_src] != '\0')
+	num_dest = 0;
+	num_src = 0;
+
+	if (nb != 0)
 	{
-		dest[pos_src] = src[pos_src];
-		++pos_src;
+		while (dest[num_dest] != '\0')
+			num_dest++;
+		while (num_src <= nb)
+		{
+			dest[num_dest] = src[num_src];
+			num_dest++;
+			num_src++;
+		}
 	}
-	dest[pos_src] = '\0';
-	return (dest);
+	return(dest);
 }
