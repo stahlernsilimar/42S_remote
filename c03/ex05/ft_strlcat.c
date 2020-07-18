@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 18:17:58 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/16 21:08:41 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/18 02:30:51 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int num_dest;
 	unsigned int num_src;
-	unsigned int max_size;
+	unsigned int return_num;
 	unsigned int init_size;
+	unsigned int buff;
 	int i;
 
 	num_dest = 0;
@@ -23,19 +24,20 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 		num_dest++;
 	while (src[num_src] != '\0')
 		num_src++;
-	if (num_dest < size)
-		init_size = num_dest;
-	else
-		init_size = size;
 
-	while (i <= init_size)
+	if (size <= 0)
+		return(num_dest - 1);
+
+	return_num = num_dest + num_src;
+	buff = size - num_src - 1;
+	while (num_dest <= size || src[i] != '\0')
 	{
 		dest[num_dest] = src[i];
 		num_dest++;
 		i++;
 	}
 		dest[i] = '\0';
-	return(init_size);
+	return(return_num);
 
 
 	/* test case
