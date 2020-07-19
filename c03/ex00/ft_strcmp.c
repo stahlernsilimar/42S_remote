@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 02:32:16 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/16 13:08:22 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/20 01:31:23 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_strcmp(char *s1, char *s2)
 	int num;
 
 	num = 0;
-	while (s1[num]!='\0' || s2[num]!='\0')
+	while (s1[num] != '\0' || s2[num] != '\0')
 	{
 		if (s1[num] < s2[num])
 			return (-1);
