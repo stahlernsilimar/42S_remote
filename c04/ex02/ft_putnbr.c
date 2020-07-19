@@ -12,6 +12,11 @@
 
 #include <unistd.h>
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 void	ft_putnbr(int nb)
 {
 	if (nb == -2147483648)
@@ -27,8 +32,8 @@ void	ft_putnbr(int nb)
 	else if (nb >= 10)
 	{
 		ft_putnbr(nb / 10);
-		write(1, ((nb % 10) + '0'), 1);
+		ft_putchar(nb % 10 + '0');
 	}
 	else
-		write(1, (nb + '0'), 1);
+		ft_putchar(nb % 10 + '0');
 }
