@@ -17,7 +17,7 @@ void	ft_putstr(char *str)
 	int str_num;
 
 	str_num = 0;
-	while(str[str_num] != '\0')
+	while (str[str_num] != '\0')
 	{
 		str_num++;
 	}

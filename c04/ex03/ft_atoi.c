@@ -2,41 +2,28 @@ int	ft_atoi(char *str)
 {
 	int count;
 	int i;
-	int j;
-	char *str_new;
-	char *str_write;
+	int ret;
 
 	count = 0;
 	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+	ret = 0;
+	while (str[i] != '\0' && (((str[i] > 8) && (str[i] < 14)) || str[i] == ' '))
 	{
-		if (str[i] != ' ')
-		{
-			str_new[j] = str[i];
-			j++;
-		}
 		i++;
 	}
-	str_new[j] = '\0';
-	i = 0;
-	while((str_new[i] != '+') || (str_new[i] !='-'))
+	while (str[i] != '\0' && (str[i] == '+' || str[i] =='-'))
 	{
-		if (str_new[i] == '-')
+		if (str[i] == '-')
 			count++;
-	}
-	if (count % 2 == 0)
-		str_write[0] = '-';
-	i = 0;
-	while (str_new[i] != '\0')
-	{
-		if ((str_new[i] <'0') || (str_new[i] > '9'))
-		{
-			return (str_write);
-		}
-		str_write[1+i] = str_new[i];
 		i++;
 	}
-	return (str_write);
-
+	while(str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		if ((str[i] >= '0') && (str[i] <= '9'))
+			ret = (ret * 10)+ (str[i] - '0');
+		i++;
+	}
+	if (count % 2 == 1)
+		ret = ret * (-1);
+	return (ret);
 }
