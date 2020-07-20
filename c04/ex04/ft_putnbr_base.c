@@ -12,7 +12,12 @@
 
 #include <unistd.h>
 
-void	ft_putnbr_base(int nb, char *base)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb, char *base)
 {
 	int ft_left = 0;
 
@@ -31,6 +36,7 @@ void	ft_putnbr_base(int nb, char *base)
 		ft_left = nb % 10;
 		ft_putnbr(nb / 10, base);
 		ft_putchar(base[ft_left]);
+		printf("%d", ft_left);
 	}
 	else
 		ft_putchar(base[ft_left]);
@@ -39,24 +45,27 @@ void	ft_putnbr_base(int nb, char *base)
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int base_size;
+	int base_size_test;
 	int neg;
 	int count;
-	int nbr_left;
 
 	base_size = 0;
 	neg = 0;
 	count = 0;
-	nbr_left;
 	while (base[base_size] != '\0')
 	{
 		if ((base[base_size] == '+') || (base[base_size] == '-') ||
 		((base[base_size] > 8) && (base[base_size] < 14)) || (base[base_size] == ' '))
-			return (0); // 동일한 문자 두번??
+			return ;
 		base_size++;
+		base_size_test = base_size;
+			while (base[base_size_test] != '\0')
+			{
+				if(base[base_size] == base[base_size_test])
+					return ;
+			}
 	}
 	if (base_size < 2)
-		return (0);
-	while (nbr < 0)
-		neg = -1;
-	ft_putnbr_base (nbr, base);
+		return ;
+	ft_putnbr(nbr, base);
 }
