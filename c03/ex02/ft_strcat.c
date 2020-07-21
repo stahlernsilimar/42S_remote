@@ -6,24 +6,25 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 13:26:29 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/20 01:34:51 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/21 20:12:44 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int num_dest;
-	int num_src;
+	int i;
+	int j;
 
-	num_dest = 0;
-	num_src = 0;
-	while (dest[num_dest] != '\0')
-		num_dest++;
-	while (src[num_src] != '\0')
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[j] != '\0')
 	{
-		dest[num_dest] = src[num_src];
-		num_dest++;
-		num_src++;
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }

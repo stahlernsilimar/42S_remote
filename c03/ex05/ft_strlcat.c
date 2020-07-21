@@ -6,33 +6,33 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 18:17:58 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/20 01:36:41 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/21 20:19:21 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	num_dest;
-	unsigned int	num_src;
-	int				i;
+	unsigned int	i;
+	unsigned int	j;
+	int				k;
 
-	num_dest = 0;
-	num_src = 0;
-	while (src[num_src] != '\0')
-		num_src++;
-	if (size <= 0)
-		return (num_src);
-	while ((num_dest < size) && (dest[num_dest] != '\0'))
-		num_dest++;
-	if (num_dest >= size)
-		return (num_dest + num_src);
 	i = 0;
-	while (num_dest + i < size)
-	{
-		dest[num_dest + i] = src[i];
+	j = 0;
+	while (src[j] != '\0')
+		j++;
+	if (size <= 0)
+		return (j);
+	while ((i < size) && (dest[i] != '\0'))
 		i++;
+	if (i >= size)
+		return (i + j);
+	k = 0;
+	while (i + k < size)
+	{
+		dest[i + k] = src[k];
+		k++;
 	}
-	if ((size != 0) || (num_dest < size))
-		dest[i] = '\0';
-	return (num_dest + num_src);
+	if ((size != 0) || (i < size))
+		dest[k] = '\0';
+	return (i + j);
 }

@@ -6,26 +6,26 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 14:17:11 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/20 01:37:13 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/21 20:17:03 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int num_dest;
-	unsigned int num_src;
+	unsigned int i;
+	unsigned int j;
 
-	num_dest = 0;
-	num_src = 0;
+	i = 0;
+	j = 0;
 	if (nb != 0)
 	{
-		while (dest[num_dest] != '\0')
-			num_dest++;
-		while (num_src <= nb)
+		while (dest[i] != '\0')
+			i++;
+		while (j < nb)
 		{
-			dest[num_dest] = src[num_src];
-			num_dest++;
-			num_src++;
+			dest[i] = src[j];
+			i++;
+			j++;
 		}
 	}
 	return (dest);

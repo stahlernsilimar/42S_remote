@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-int	ft_putnbr(int nb, char *base, int digit, int total)
+/* int	ft_putnbr(int nb, char *base, int digit, int total)
 {
 	int ft_left;
 
@@ -39,6 +39,17 @@ int	ft_putnbr(int nb, char *base, int digit, int total)
 		total = total * 10 + (base[ft_left] - '0');
 	}
 	return (total);
+}
+*/
+
+char ft_putstr_base(char *str, char *base)
+{
+	int j;
+
+	j = 0;
+	if (str == base[j])
+		return (base);
+	j++;
 }
 
 int	ft_atoi(char *str)
@@ -100,10 +111,13 @@ int	ft_atoi_base(char *str, char *base)
 		return (0) ;
 	total = 0;
 	neg = 0;
+	j = 0;
+	while (str[i] != '\0')
+	{
+		str[i] = ft_putstr_base(str, base);
+		i++;
+	}
 	nbr = ft_atoi(str);
-	if (nbr < 0)
-		neg = 1;
-	nbr = ft_putnbr(nbr, base, i, total);
 	if (neg == 1)
 		return (nbr * (-1));
 	else
