@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 14:51:25 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/21 20:32:37 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/22 00:20:41 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,23 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	int		i;
 	int		j;
-	char	*temp[99];
 
 	i = 0;
-	j = 0;
-	while (str[i] != '\0')
-		i++;
-	while (to_find[j] != '\0')
-		j++;
-	if (j == '\0')
+	if (to_find[0] != '\0')
 		return (str);
-	if (!(i < j))
+	while (str[i] != '\0')
 	{
-		i = 0;
 		j = 0;
-		while (str[i] != '\0')
+		if (str[i] == to_find[j])
 		{
-			if (str[i] == to_find[0])
-				temp[j++] = &str[i];
-			i++;
+			while (to_find[j] == str[i + j])
+			{
+				j++;
+				if (to_find[j] == '\0')
+					return(&str[i]);
+			}
 		}
-		return (*temp);
+		i++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 18:17:58 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/21 20:19:21 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/22 00:20:44 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	j;
-	int				k;
+	unsigned int	k;
 
 	i = 0;
 	j = 0;
+	while (dest[i] != '\0')
+		i++;
 	while (src[j] != '\0')
 		j++;
-	if (size <= 0)
-		return (j);
-	while ((i < size) && (dest[i] != '\0'))
-		i++;
-	if (i >= size)
-		return (i + j);
 	k = 0;
-	while (i + k < size)
+	while ((src[k] != '\0') && (i + 1 < size))
 	{
-		dest[i + k] = src[k];
+		dest[i] = src[k];
+		i++;
 		k++;
 	}
-	if ((size != 0) || (i < size))
-		dest[k] = '\0';
-	return (i + j);
+	dest[k] = '\0';
+	if (i > size)
+		return (size + j);
+	else
+		return (i + j);
 }
