@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 15:41:43 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/20 15:41:43 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/22 19:22:01 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/22 20:01:08 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -23,7 +22,6 @@ void	ft_putnbr(int nb, char *base, int digit)
 	int ft_left;
 
 	ft_left = 0;
-
 	if (nb == -2147483648)
 	{
 		ft_left = (nb % digit) * (-1);
@@ -57,12 +55,12 @@ void	ft_putnbr_base(int nbr, char *base)
 	while (base[i] != '\0')
 	{
 		if ((base[i] == '+') || (base[i] == '-') ||
-		((base[i] > 8) && (base[i] < 14)) || (base[i] == ' '))
+		((base[i] > 8) && (base[i] < 14)))
 			return ;
 		j = i + 1;
 		while (base[j] != '\0')
 		{
-			if(base[i] == base[j])
+			if (base[i] == base[j])
 				return ;
 			j++;
 		}

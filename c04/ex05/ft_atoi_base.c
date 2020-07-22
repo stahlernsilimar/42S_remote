@@ -10,49 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-/* int	ft_putnbr(int nb, char *base, int digit, int total)
-{
-	int ft_left;
-
-	ft_left = 0;
-	if (nb == -2147483648)
-	{
-		ft_left = (nb % digit) * (-1);
-		total = ft_putnbr(nb / digit, base, digit, total);
-		total = total * 10 + (base[ft_left] - '0');
-	}
-	else if (nb < 0)
-	{
-		total = ft_putnbr(nb * (-1), base, digit, total);
-	}
-	else if ((nb / digit) != 0)
-	{
-		ft_left = nb % digit;
-		total = ft_putnbr(nb / digit, base, digit, total);
-		total = total * 10 + (base[ft_left] - '0');
-	}
-	else
-	{
-		ft_left = nb % digit;
-		total = total * 10 + (base[ft_left] - '0');
-	}
-	return (total);
-}
-*/
-
-char ft_putstr_base(char *str, char *base)
+char	*ft_str2base(char *str, char *base, int i)
 {
 	int j;
 
-	j = 0;
-	if (str == base[j])
-		return (base);
-	j++;
+	while (str[i] != '\0')
+	{
+		j = 0;
+		while (base[j] != '\0')
+		{
+			if (str[i] == base[j])
+				str[i] = j + '0';
+			j++;
+		}
+		i++;
+	}
+	printf ("base changed : %s", str);
+	return (str);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(char *str, char *base)
 {
 	int count;
 	int i;
@@ -71,6 +48,7 @@ int	ft_atoi(char *str)
 			count++;
 		i++;
 	}
+	str = ft_str2base(str, base, i);
 	while(str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
 	{
 		if ((str[i] >= '0') && (str[i] <= '9'))
@@ -87,8 +65,6 @@ int	ft_atoi_base(char *str, char *base)
 	int i;
 	int j;
 	int nbr;
-	int total;
-	int neg;
 
 	if (str[0] == '\0')
 		return (0);
@@ -107,34 +83,6 @@ int	ft_atoi_base(char *str, char *base)
 		}
 		i++;
 	}
-	if (i < 2)
-		return (0) ;
-	total = 0;
-	neg = 0;
-	j = 0;
-	while (str[i] != '\0')
-	{
-		str[i] = ft_putstr_base(str, base);
-		i++;
-	}
-	nbr = ft_atoi(str);
-	if (neg == 1)
-		return (nbr * (-1));
-	else
-		return (nbr);
-}
-
-int main()
-{
-	printf("%d ", ft_atoi_base("42", "0123456789"));
-	printf("%d ", ft_atoi_base("   42abc", "0123456789"));
-	printf("%d ", ft_atoi_base("  +--++-rcrdmddd+-abc", "mrdoc"));
-	printf("%d ", ft_atoi_base("-10000000000000000000000000000000", "01"));
-	printf("%d ", ft_atoi_base("8888888888888888888888888888888", "a8"));
-	printf("%d ", ft_atoi_base("one", "e"));
-	printf("%d ", ft_atoi_base("blank", ""));
-	printf("%d ", ft_atoi_base("", "za"));
-	printf("%d ", ft_atoi_base("ca", "zaca"));
-	printf("%d ", ft_atoi_base("ca", "z\v\f\nac"));
-	printf("\n");
+	nbr = ft_atoi(str, base);
+	return (nbr);
 }
