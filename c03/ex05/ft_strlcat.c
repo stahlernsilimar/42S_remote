@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 18:17:58 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/22 00:20:44 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/22 18:29:01 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int	i;
 	unsigned int	j;
 	unsigned int	k;
+	unsigned int	ret_size;
 
 	i = 0;
 	j = 0;
@@ -22,6 +23,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		i++;
 	while (src[j] != '\0')
 		j++;
+	ret_size = i + j;
 	k = 0;
 	while ((src[k] != '\0') && (i + 1 < size))
 	{
@@ -29,9 +31,9 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		i++;
 		k++;
 	}
-	dest[k] = '\0';
+	dest[i] = '\0';
 	if (i > size)
 		return (size + j);
 	else
-		return (i + j);
+		return (ret_size);
 }
