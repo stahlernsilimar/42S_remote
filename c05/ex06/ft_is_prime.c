@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 21:55:26 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/22 21:59:32 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/23 20:23:39 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@ int	ft_is_prime(int nb)
 {
 	int i;
 
-	if (nb < 2)
-		return (0);
 	i = 2;
-	while (i < nb)
+	if (nb <= 1)
+		return (0);
+	while (i <= nb / i)
 	{
 		if ((nb % i) == 0)
 			return (0);

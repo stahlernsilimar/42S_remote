@@ -6,14 +6,13 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 22:00:02 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/22 23:53:37 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/23 20:17:23 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
 	int i;
-	int temp;
 
 	if (nb < 2)
 		return (1);
@@ -22,10 +21,7 @@ int	ft_is_prime(int nb)
 	if ((nb % 3) == 0)
 		return (0);
 	i = 2;
-	temp = nb;
-	if (nb > 6)
-		temp = nb / 3;
-	while (i <= temp)
+	while (i <= (nb / i))
 	{
 		if ((nb % i) == 0)
 			return (0);

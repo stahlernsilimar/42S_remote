@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/22 21:49:24 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/23 20:14:32 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/23 13:25:07 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/23 18:28:14 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int temp;
-	int i;
+#include <stdlib.h>
 
-	temp = 0;
-	i = 0;
-	while ((temp <= nb) && (i < 46554))
-	{
-		i++;
-		temp = i * i;
-		if (nb == temp)
-			return (i);
-	}
-	return (0);
+int		*ft_range(int min, int max)
+{
+	int len;
+
+	if (min >= max)
+		return NULL;
+	len = max - min;
 }
