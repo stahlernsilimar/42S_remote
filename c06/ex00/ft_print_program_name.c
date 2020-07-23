@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/23 01:36:58 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/23 01:36:58 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/23 12:22:22 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/23 12:22:59 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	int i;
 	int j;

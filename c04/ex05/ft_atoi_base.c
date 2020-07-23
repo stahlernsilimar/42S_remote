@@ -6,7 +6,7 @@
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 11:29:21 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/23 11:35:29 by hemin            ###   ########.fr       */
+/*   Updated: 2020/07/23 11:40:23 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_putnbr(int nb, char *base, int digit, int total)
 	{
 		ft_left = (nb % digit) * (-1);
 		total = ft_putnbr(nb / digit, base, digit, total);
-		total = total * 10 + (base[ft_left] - '0');
+		total = total * digit + (base[ft_left] - '0');
 	}
 	else if (nb < 0)
 	{
@@ -56,12 +56,12 @@ int	ft_putnbr(int nb, char *base, int digit, int total)
 	{
 		ft_left = nb % digit;
 		total = ft_putnbr(nb / digit, base, digit, total);
-		total = total * 10 + (base[ft_left] - '0');
+		total = total * digit + (base[ft_left] - '0');
 	}
 	else
 	{
 		ft_left = nb % digit;
-		total = total * 10 + (base[ft_left] - '0');
+		total = total * digit + (base[ft_left] - '0');
 	}
 	return (total);
 }

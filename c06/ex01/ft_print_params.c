@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hemin <hemin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/23 01:35:49 by hemin             #+#    #+#             */
-/*   Updated: 2020/07/23 01:35:49 by hemin            ###   ########.fr       */
+/*   Created: 2020/07/23 12:23:21 by hemin             #+#    #+#             */
+/*   Updated: 2020/07/23 12:24:05 by hemin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	main(int argc, char *argv[])
 {
-	int i;
-	int j;
-	char c;
+	int		i;
+	int		j;
+	char	c;
 
 	i = 1;
 	j = 0;
-	while(i < argc)
+	while (i < argc)
 	{
 		j = 0;
-		while(argv[i][j] != '\0')
+		while (argv[i][j] != '\0')
 		{
 			c = argv[i][j];
 			write(1, &c, 1);
